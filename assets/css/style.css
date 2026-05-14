@@ -1,0 +1,745 @@
+/* assets/css/style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-bg: #0a0a0a;
+    --dark-wood: #1a1a1a;
+    --paper: #2a2418;
+    --gold: #c4a747;
+    --gold-dim: #8b7332;
+    --red: #8b0000;
+    --red-bright: #cc0000;
+    --moon: #e8e4d8;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Inter', 'Cinza', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1520 50%, #0a0a0a 100%);
+    color: var(--moon);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Фоновые слои */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.fog-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(100, 80, 60, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    animation: fogMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes fogMove {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    position: relative;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gold-dim);
+    padding: 1rem 2rem;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.torii-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.torii-icon::before,
+.torii-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--red);
+}
+
+.torii-icon::before {
+    width: 100%;
+    height: 4px;
+    top: 10px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.torii-icon::after {
+    width: 4px;
+    height: 30px;
+    bottom: 0;
+    left: 10px;
+    background: var(--red-bright);
+    box-shadow: 16px 0 0 var(--red-bright);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.logo h1 span {
+    color: var(--red-bright);
+    font-weight: 600;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--moon);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--red-bright);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--red-bright);
+}
+
+/* Main content */
+.main {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: calc(100vh - 160px);
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-title span {
+    color: var(--red-bright);
+    font-weight: 600;
+    display: block;
+    font-size: 3.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-decoration {
+    margin-top: 2rem;
+}
+
+.shimenawa {
+    width: 200px;
+    height: 4px;
+    background: repeating-linear-gradient(90deg, var(--gold), var(--gold) 20px, #5a4a2a 20px, #5a4a2a 40px);
+    margin: 0 auto;
+    position: relative;
+    border-radius: 2px;
+}
+
+.shimenawa::before,
+.shimenawa::after {
+    content: '⚡';
+    position: absolute;
+    top: -12px;
+    font-size: 1rem;
+    color: var(--gold);
+}
+
+.shimenawa::before {
+    left: -15px;
+}
+
+.shimenawa::after {
+    right: -15px;
+}
+
+/* Карта святилища */
+.shrine-map {
+    padding: 3rem 0;
+}
+
+.map-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gate {
+    background: linear-gradient(135deg, rgba(30, 25, 20, 0.8) 0%, rgba(20, 15, 10, 0.9) 100%);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(196, 167, 71, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.gate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(196, 167, 71, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.gate:hover::before {
+    left: 100%;
+}
+
+.gate:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(196, 167, 71, 0.2);
+}
+
+/* Врата тории */
+.gate-torii {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+}
+
+.torii-beam {
+    position: absolute;
+    background: var(--red);
+    border-radius: 5px;
+}
+
+.torii-beam.top {
+    width: 100%;
+    height: 6px;
+    top: 0;
+    left: 0;
+}
+
+.torii-beam.middle {
+    width: 90%;
+    height: 4px;
+    top: 30px;
+    left: 5%;
+}
+
+.torii-pillars {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+}
+
+.pillar {
+    width: 8px;
+    height: 70px;
+    background: var(--red);
+    border-radius: 4px;
+}
+
+/* Лесные врата */
+.forest-gate {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+}
+
+.tree-shadow {
+    width: 40px;
+    height: 80px;
+    background: #2a3a2a;
+    margin: 0 auto;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+}
+
+.tree-shadow::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(ellipse, #3a4a3a, transparent);
+    border-radius: 50%;
+}
+
+.shrine-lantern {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 40px;
+    background: #8b7332;
+    border-radius: 5px;
+}
+
+.shrine-lantern::before {
+    content: '●';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #ff6600;
+    font-size: 0.8rem;
+    animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; text-shadow: 0 0 5px #ff6600; }
+    50% { opacity: 0.6; text-shadow: 0 0 2px #ff6600; }
+}
+
+/* Склеп */
+.crypt-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #3a2a1a, #1a0a0a);
+    border-radius: 10px;
+    position: relative;
+    transform: rotate(45deg);
+    animation: pulse 3s infinite;
+}
+
+.crypt-icon::before {
+    content: '✧';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 2rem;
+    color: var(--gold);
+    opacity: 0.7;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 5px rgba(196, 167, 71, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(196, 167, 71, 0.6); }
+}
+
+/* Гора */
+.mountain-icon {
+    width: 100px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+}
+
+.mountain-icon::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid #3a4a5a;
+}
+
+.mountain-icon::after {
+    content: '❄';
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.gate-info h3 {
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.gate-info p {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+.counter {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    background: rgba(196, 167, 71, 0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--gold);
+}
+
+/* Секция легенды */
+.legend-section {
+    margin-top: 4rem;
+}
+
+.scroll-paper {
+    background: linear-gradient(135deg, #2a2418, #1a1610);
+    border-radius: 20px;
+    padding: 2px;
+    position: relative;
+}
+
+.scroll-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.scroll-content {
+    background: rgba(42, 36, 24, 0.5);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: 18px;
+}
+
+.scroll-content h3 {
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.scroll-content p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Страницы со списками */
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.page-subtitle {
+    text-align: center;
+    opacity: 0.7;
+    margin-bottom: 3rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(30, 25, 20, 0.8), rgba(20, 15, 10, 0.9));
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(196, 167, 71, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card h3 {
+    color: var(--gold);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid var(--red-bright);
+    padding-left: 1rem;
+}
+
+.card-kanji {
+    font-family: 'Noto Sans JP', 'Cinza', serif;
+    color: var(--gold-dim);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-type {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    background: rgba(139, 0, 0, 0.3);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin: 0.5rem 0;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin: 0.75rem 0;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover {
+    color: var(--red-bright);
+    transform: translateX(5px);
+}
+
+/* Страница деталей */
+.detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.detail-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.detail-name {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+.detail-kanji {
+    font-family: 'Noto Sans JP', serif;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+}
+
+.detail-card {
+    background: linear-gradient(135deg, rgba(30, 25, 20, 0.8), rgba(20, 15, 10, 0.9));
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(196, 167, 71, 0.3);
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(196, 167, 71, 0.2);
+}
+
+.detail-section h4 {
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.detail-section p {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.detail-story {
+    line-height: 2;
+    white-space: pre-wrap;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    color: var(--red-bright);
+    transform: translateX(-5px);
+}
+
+/* Футер */
+.footer {
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--gold-dim);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title span {
+        font-size: 2.5rem;
+    }
+    
+    .map-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .detail-name {
+        font-size: 2rem;
+    }
+}
+
+/* Анимации появления */
+.fade-in {
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
