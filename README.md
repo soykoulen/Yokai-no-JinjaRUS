@@ -14,12 +14,13 @@ Yōkai no Jinja — это интерактивное святилище япо�
 ## Превью
 
 <p align="center">
-  <img src="SCREEN_1" width="400"/>
-  <img src="SCREEN_2" width="400"/>
+  <img src="./Preview/main.png" width="400"/>
+  <img src="./Preview/kami.png" width="400"/>
 </p>
 
 <p align="center">
-  <img src="GIF_2" width="500"/>
+  <img src="./Preview/Yokai.png" width="500"/>
+  <img src="./Preview/card.png" width="500"/>
 </p>
 
 ---
