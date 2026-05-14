@@ -1,6 +1,6 @@
 #  Yōkai no Jinja (妖怪の神社)
 
-<img align="center" src="./Preview/тории.png">
+<img align="center" src="./Preview/Torii.png">
 
 ---
 
