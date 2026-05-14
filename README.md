@@ -51,7 +51,7 @@ Yōkai no Jinja — это интерактивное святилище япо�
    * Apache
    * MySQL
 
-4. Импортировать базу данных через phpMyAdmin( http://localhost/phpmyadmin/index.php )
+4. Импортировать базу данных (sql/mythology.sql) через phpMyAdmin( http://localhost/phpmyadmin/index.php )
 
 5. Открыть сайт:
 
