@@ -62,7 +62,7 @@ Yōkai no Jinja — это интерактивное святилище япо�
 ---
 
 ### Способ 2 — Через Git
-git clone https://github.com/soykoulen/Yokai-no-Jinja.git
+git clone https://github.com/soykoulen/Yokai-no-JinjaRUS.git
 cd yokai-no-jinja
 
 Далее:
