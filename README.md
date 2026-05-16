@@ -93,3 +93,5 @@ cd yokai-no-jinja
 3. Генерирует карточки
 
 ---
+
+## Это святилище является новой формой архива **[Noroi no Kiroku]([https://github.com/soykoulen/Noroi-no-KirokuRUS])**
