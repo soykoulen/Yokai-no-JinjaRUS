@@ -1,4 +1,4 @@
-#  Yōkai no Jinja (妖怪の神社)
+#  Yōkai no Jinja
 
 <img align="center" src="./Preview/Torii.png">
 
