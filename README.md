@@ -94,4 +94,6 @@ cd yokai-no-jinja
 
 ---
 
-## Это святилище является новой формой архива **[Noroi no Kiroku]([https://github.com/soykoulen/Noroi-no-KirokuRUS])**
+## Это святилище является новой формой архива **[Noroi no Kiroku](https://github.com/soykoulen/Noroi-no-KirokuRUS)**
+
+---
